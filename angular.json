@@ -9,10 +9,20 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "es": {
+            "translation": "src/locale/messages.es.xlf",
+            "baseHref": ""
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": true,
             "outputPath": "dist/inclusive-welcome",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -23,6 +33,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -56,6 +67,9 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "es": {
+              "localize": ["es"]
             }
           },
           "defaultConfiguration": "production"
@@ -68,6 +82,9 @@
             },
             "development": {
               "browserTarget": "inclusive-welcome:build:development"
+            },
+            "es": {
+              "browserTarget": "inclusive-welcome:build:development,es"
             }
           },
           "defaultConfiguration": "development"
@@ -90,6 +107,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -97,5 +115,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "da265052-77b0-4c57-ac21-81252062756b"
   }
 }
